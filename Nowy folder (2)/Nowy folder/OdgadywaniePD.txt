@@ -1,0 +1,33 @@
+import java.util.Random;
+
+public class A6PD {
+    public static void main(String[] args) {
+        final int MAX=1000;
+        final Random rand=new Random();
+        final int wynik= rand.nextInt(MAX+1);
+        int[][] tab=new int[3][MAX];
+        tab[0][0]=0;
+        tab[2][0]=MAX;
+
+        for (int i=0; i<MAX;i++){
+            tab[1][i]=(int)((tab[0][i]+tab[2][i])/2);
+            System.out.println(tab[1][i]+" Czy to ta liczba?");
+            if (tab[1][i]==wynik){
+                System.out.println(tab[1][i]+" To ta liczba");
+                break;
+            }
+
+            if (tab[1][i]>wynik){
+                System.out.println(tab[1][i]+" Za duza");
+                tab[0][i+1]=tab[0][i];
+                tab[2][i+1]=tab[1][i];
+            }
+
+            if (tab[1][i]<wynik){
+                System.out.println(tab[1][i]+" Za mala");
+                tab[0][i+1]=tab[1][i];
+                tab[2][i+1]=tab[2][i];
+            }
+        }
+    }
+}

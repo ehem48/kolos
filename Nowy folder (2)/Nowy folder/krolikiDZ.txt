@@ -1,0 +1,39 @@
+public class A20DZ {
+    static boolean sto, tys, dziesiectys, stotys, milion;
+
+    public static void main(String[] args) {
+        //final int N=40;
+        licz(40);
+    }
+
+    public static int licz(int n){
+        if (n==1 || n==2){
+            return 1;
+        }
+
+        int kroliki=licz(n-1)+licz(n-2);
+
+        if (kroliki>100 && !sto){
+            System.out.println("Sto po: "+n);
+            sto=true;
+        }
+
+        if (kroliki>1000 && !tys){
+            System.out.println("Tys po: "+n);
+            tys=true;
+        }
+        if (kroliki>10000 && !dziesiectys){
+            System.out.println("Dziesiectys po: "+n);
+            dziesiectys=true;
+        }
+        if (kroliki>100000 && !stotys){
+            System.out.println("Stotys po: "+n);
+            stotys=true;
+        }
+        if (kroliki>1000000 && !milion){
+            System.out.println("milion po: "+n);
+            milion=true;
+        }
+        return kroliki;
+    }
+}

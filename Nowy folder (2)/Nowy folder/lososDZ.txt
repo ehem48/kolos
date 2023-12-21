@@ -1,0 +1,23 @@
+public class A25DZ {
+    final static int MAX=1000000;
+    static boolean dwa;
+
+    public static void main(String[] args) {
+        licz(MAX, 0);
+    }
+
+    public static void licz(int lososie, int min){
+        if (lososie<MAX/2 && !dwa){
+            System.out.println("Polowa po: "+min);
+            dwa=true;
+        }
+
+        if (lososie<100){
+            System.out.println("Wymra po " +min);
+            return;
+        }
+
+        lososie=(int)(((lososie*Math.exp(0.003))*0.998)*0.998);
+        licz(lososie, min+1);
+    }
+}

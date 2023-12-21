@@ -1,0 +1,26 @@
+public class zad1 {
+    public static void main(String[] args) {
+        System.out.println(zadanko(4));
+    }
+
+    static int zadanko(int n){
+        int[] tab=new int[n+1];
+
+        for (int i=1;i<=n;i++){
+            if (i==1){
+                tab[i]=1;
+            } else if (i==2) {
+                tab[i]=2;
+            } else if (i==3) {
+                tab[i]=3;
+            }
+            else if (i>3 && i%2==0){
+                tab[i]=tab[i-1]*tab[i-3];
+            } else if (i>3 && i%2==1) {
+                tab[i]=tab[i-2]*tab[i-2];
+            }
+        }
+
+        return tab[n];
+    }
+}
